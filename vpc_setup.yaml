@@ -1,6 +1,6 @@
 - name: VPC set-up
   hosts: localhost
-  connect:  local
+  connection:  local
   gather_facts: false
   tasks:
   - name: Import VPC variables
@@ -10,7 +10,7 @@
     ec2_vpc_net:
        name: "{{vpc_name}}"
        cidr_block: "{{vpc_cidr}}"
-       region: "((region))"
+       region: "{{region}}"
        tags:
          module: ec2_vpc_net
          this: works
