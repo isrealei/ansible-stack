@@ -25,7 +25,7 @@ region: "us-east-1"
 # Zones
 
 zone1: us-east-1a
-zone2: us-east_1b
+zone2: us-east-1b
 zone3: us-east-1c
 
 #state

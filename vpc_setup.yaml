@@ -24,7 +24,7 @@
      var: vpout
 
 
-  - name: public subnets creation
+  - name: public subnet-1 creation
     ec2_vpc_subnet:
       state: present
       vpc_id: "{{vpout.vpc.id}}"
@@ -35,4 +35,31 @@
       map_public: yes
       tags:
         Name: public-Subnet-1
+    register: pubsub1_out
+
+
+  - name: public subnets-2 creation
+    ec2_vpc_subnet:
+      state: present
+      vpc_id: "{{vpout.vpc.id}}"
+      cidr: "{{pub_subnet_2}}"
+      az: "{{zone2}}"
+      region: "{{region}}"
+      state: "{{state}}"
+      map_public: yes
+      tags:
+        Name: public-Subnet-2
+    register: pubsub1_out
+
+  - name: public subnets-3 creation
+    ec2_vpc_subnet:
+      state: present
+      vpc_id: "{{vpout.vpc.id}}"
+      cidr: "{{pub_subnet_3}}"
+      az: "{{zone3}}"
+      region: "{{region}}"
+      state: "{{state}}"
+      map_public: yes
+      tags:
+        Name: public-Subnet-3
     register: pubsub1_out
