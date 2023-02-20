@@ -20,3 +20,19 @@
        state: "{{state}}"
     register: vpout
 
+  - debug:
+     var: vpout
+
+
+  - name: public subnets creation
+    ec2_vpc_subnet:
+      state: present
+      vpc_id: "{{vpout.vpc.id}}"
+      cidr: "{{pub_subnet_1}}"
+      az: "{{zone1}}"
+      region: "{{region}}"
+      state: "{{state}}"
+      map_public: yes
+      tags:
+        Name: public-Subnet-1
+    register: pubsub1_out
