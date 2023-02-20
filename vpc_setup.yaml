@@ -140,11 +140,12 @@
 
   - name: create a new nat-gate way and allocate elas ip
     ec2_vpc_nat_gateway:
-      state: "{{state}}"
+      state: "{{state}}" 
       subnet_id: "{{pubsub1_out.subnet.id}}"
         #eip_address: 52.1.1.1
       region: "{{region}}"
       wait: yes
+        #nat_gateway_id: 	nat-0a1ec99cbb3f0822a
       if_exist_do_not_create: yes
       
     register: natout
@@ -165,4 +166,19 @@
         gateway_id: "{{natout.nat_gateway_id}}"
     register: prirt
 
+  - name:  Print all ids
+    debug: 
+     var: "{{item}}"
+    loop:
+    - vpout.vpc.id
+    - pubsub1_out.subnet.id
+    - pubsub2_out.subnet.id
+    - pubsub3_out.subnet.id
+    - prisub1_out.subnet.id
+    - prisub2_out.subnet.id
+    - prisub3_out.subnet.id
+    - igwout.gateway_id
+    - natout.nat_gateway_id
+    - pubrt.route_table.id
+    - prirt.route_table.id
 
