@@ -182,3 +182,38 @@
     - pubrt.route_table.id
     - prirt.route_table.id
 
+  - set_fact: 
+      vpcid: "{{vpout.vpc.id}}"
+      pub1id: "{{pubsub1_out.subnet.id}}"
+      pub2id: "{{pubsub2_out.subnet.id}}"
+      pub3id: "{{pubsub3_out.subnet.id}}"
+      pri1id: "{{prisub1_out.subnet.id}}"
+      pri2id: "{{prisub2_out.subnet.id}}"
+      pri3id: "{{prisub3_out.subnet.id}}"
+      igwid: "{{igwout.gateway_id}}"
+      ngwid: "{{natout.nat_gateway_id}}"
+      pubrtid: "{{pubrt.route_table.id}}"
+      prirtid: "{{prirt.route_table.id}}"
+      cacheable: yes
+
+  - name: create variable file for vpc output
+    copy:
+       content: "vpcid: {{vpout.vpc.id}}\npub1id: {{pubsub1_out.subnet.id}}\npub2id: {{pubsub2_out.subnet.id}}\npub3id: {{pubsub3_out.subnet.id}}\npri1id: {{prisub1_out.subnet.id}}\npri2id: {{prisub2_out.subnet.id}}\npri3id: {{prisub3_out.subnet.id}}\nigwid: {{igwout.gateway_id}}\nngwid: {{natout.nat_gateway_id}}\n pubrtid: {{pubrt.route_table.id}}\nprirtid: {{prirt.route_table.id}}"
+       dest: vars/output_vars
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
