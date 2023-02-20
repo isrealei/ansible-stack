@@ -20,8 +20,8 @@
        state: "{{state}}"
     register: vpout
 
-  - debug:
-     var: vpout
+      # - debug:
+      #var: vpout
 
 
   - name: public subnet-1 creation
@@ -117,5 +117,52 @@
       tags:
         Name: internet-gateway
     register: igwout
+
+# Route tables creation
+
+
+  - name: Set up public subnet route table
+    ec2_vpc_route_table:
+      vpc_id: "{{vpout.vpc.id}}"
+      region: "{{region}}"
+      state: "{{state}}"
+      tags:
+        Name: Public-RT
+      subnets:
+      - "{{pubsub1_out.subnet.id}}"
+      - "{{pubsub2_out.subnet.id}}"
+      - "{{pubsub3_out.subnet.id}}"
+      routes:
+      - dest: 0.0.0.0/0
+        gateway_id: "{{igwout.gateway_id}}"
+    register: pubrt
+
+
+  - name: create a new nat-gate way and allocate elas ip
+    ec2_vpc_nat_gateway:
+      state: "{{state}}"
+      subnet_id: "{{pubsub1_out.subnet.id}}"
+        #eip_address: 52.1.1.1
+      region: "{{region}}"
+      wait: yes
+      if_exist_do_not_create: yes
+      
+    register: natout
+
+  - name:  Route gatewap for private sub-net
+    ec2_vpc_route_table:
+      vpc_id: "{{vpout.vpc.id}}"
+      region: "{{region}}"
+      state: "{{state}}"
+      tags:
+        Name: Private-RT
+      subnets:
+      - "{{prisub1_out.subnet.id}}"
+      - "{{prisub2_out.subnet.id}}"
+      - "{{prisub3_out.subnet.id}}"
+      routes:
+      - dest: 0.0.0.0/0
+        gateway_id: "{{natout.nat_gateway_id}}"
+    register: prirt
 
 
