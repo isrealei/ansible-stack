@@ -105,3 +105,17 @@
       tags:
         Name: private-Subnet-3
     register: prisub3_out
+
+
+# Internent Gateway
+
+  - name: Internet gateway set-up
+    ec2_vpc_igw:
+      vpc_id: "{{vpout.vpc.id}}"
+      state: present
+      region: "{{region}}"
+      tags:
+        Name: internet-gateway
+    register: igwout
+
+
