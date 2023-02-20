@@ -1,0 +1,14 @@
+- name: Creation of Bastion host
+  hosts: localhost
+  connection: local
+  gather_facts:  yes
+  tasks:
+  - name: Import variables from vars file
+    include_vars: vars/bastionhost_setup
+
+  - name: Import variables from vars file
+    include_vars: vars/output_vars
+
+
+  - name: create bastion host
+
