@@ -49,7 +49,7 @@
       map_public: yes
       tags:
         Name: public-Subnet-2
-    register: pubsub1_out
+    register: pubsub2_out
 
   - name: public subnets-3 creation
     ec2_vpc_subnet:
@@ -62,4 +62,46 @@
       map_public: yes
       tags:
         Name: public-Subnet-3
-    register: pubsub1_out
+    register: pubsub3_out
+
+
+  - name: private subnets-1 creation
+    ec2_vpc_subnet:
+      state: present
+      vpc_id: "{{vpout.vpc.id}}"
+      cidr: "{{pri_subnet_1}}"
+      az: "{{zone1}}"
+      region: "{{region}}"
+      state: "{{state}}"
+      map_public: yes
+      tags:
+        Name: private-Subnet-1
+    register: prisub1_out
+
+
+  - name: private subnets-2 creation
+    ec2_vpc_subnet:
+      state: present
+      vpc_id: "{{vpout.vpc.id}}"
+      cidr: "{{pri_subnet_2}}"
+      az: "{{zone2}}"
+      region: "{{region}}"
+      state: "{{state}}"
+      map_public: yes
+      tags:
+        Name: private-Subnet-2
+    register: prisub2_out
+
+
+  - name: private subnets-3 creation
+    ec2_vpc_subnet:
+      state: present
+      vpc_id: "{{vpout.vpc.id}}"
+      cidr: "{{pri_subnet_3}}"
+      az: "{{zone3}}"
+      region: "{{region}}"
+      state: "{{state}}"
+      map_public: yes
+      tags:
+        Name: private-Subnet-3
+    register: prisub3_out
