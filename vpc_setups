@@ -1,0 +1,33 @@
+# Variable for vpc creation 
+
+vpc_name: "Delight-vpc"
+
+# VPC RANGE
+
+vpc_cidr: "172.20.0.0/16"
+
+
+# Subnet Ranges
+
+pub_subnet_1: 172.20.1.0/24
+pub_subnet_2: 172.20.2.0/24
+pub_subnet_3: 172.20.3.0/24
+pri_subnet_1: 172.20.4.0/24
+pri_subnet_2: 172.20.5.0/24
+pri_subnet_3: 172.20.6.0/24
+
+
+#Regions 
+
+region: "us-east-1"
+
+
+# Zones
+
+zone1: us-east-1a
+zone2: us-east_1b
+zone3: us-east-1c
+
+#state
+
+state: present
