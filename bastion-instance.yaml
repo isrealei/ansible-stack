@@ -10,5 +10,18 @@
     include_vars: vars/output_vars
 
 
-  - name: create bastion host
+  - name: create a key-pair for bastion-host
+    ec2_key:
+      name: bastion_keypair
+      state: present
+      region: "{{region}}"
+    register: bastion_keypair
+
+  - name: save private key infor inot a text
+    copy: 
+      content: "{{bastion_keypair.key.private_key}}"
+      dest: "./bastion_keypair.pem"
+      mode: 0600
+    when: bastion_keypair.changed   
+
 
