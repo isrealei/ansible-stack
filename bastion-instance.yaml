@@ -17,11 +17,33 @@
       region: "{{region}}"
     register: bastion_keypair
 
+      #  - debug:
+      #var: bastion_keypair.key.private_key
+
   - name: save private key infor inot a text
     copy: 
       content: "{{bastion_keypair.key.private_key}}"
       dest: "./bastion_keypair.pem"
       mode: 0600
     when: bastion_keypair.changed   
+
+  - name: Create security group for bastion host
+    ec2_group:
+      name: bastion-host-sg
+      description: sg for all bastion hosts to connects to resources in private network
+      vpc_id: "{{vpcid}}"
+      region: "{{region}}"
+      rules: 
+      - proto: tcp
+        from_port: 22
+        to_port: 22
+        cidr_ip: "{{MYIP}}"
+        rule_desc: allow my ip on port 22 
+    register: bastsg
+
+
+  - debug:
+     var: bastsg
+
 
 
