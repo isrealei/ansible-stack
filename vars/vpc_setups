@@ -31,3 +31,11 @@ zone3: us-east-1c
 #state
 
 state: present
+
+# Bastion host 
+
+bastion_ami: ami-0557a15b87f6559cf
+
+region: us-east-1
+
+MYIP: 92.41.162.183/32
