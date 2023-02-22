@@ -42,21 +42,21 @@
     register: bastsg
 
 
-  - debug:
-     var: bastsg
+      #  - debug:
+      #var: bastsg
 
 
   - name: Creating bastion-host
-    ec2_instance:
-      name: bastion-host
+    ec2:
       key_name: bastion_keypair
       instance_type: t2.micro
-      security_group: "{{bastsg.group_id}}"
+      group_id: "{{bastsg.group_id}}"
       image: "{{bastion_ami}}"
       region: "{{region}}"
       wait: yes
+      vpc_subnet_id: "{{pub1id}}"
       wait_timeout: 300
-      tags:
+      instance_tags:
         Name: "Bastion_host"
         Project: vprofile
         Owner: DevOps Team
