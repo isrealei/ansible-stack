@@ -6,3 +6,25 @@
   - name: Importing my variables
     include_vars: vars/vpc_setups
 
+  - name: Importing ami variables
+    include_vars: vars/vpro-stack
+
+  - name: Importing ami variables
+    include_vars: vars/output_vars
+
+
+  - name: creating a key pair for my instances
+    ec2_key: 
+      name: vpro-key
+      state: present
+      region: "{{region}}"
+    register: vpro_key
+
+  - name: Storing key inot text file
+    copy: 
+     content: "{{vpro_key.key.private_key}}"
+     dest:  "./vpro_key.pem"
+     mode: 0600
+    when: vpro_key.changed
+
+  - name: create security group
