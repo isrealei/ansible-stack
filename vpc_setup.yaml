@@ -166,21 +166,21 @@
         gateway_id: "{{natout.nat_gateway_id}}"
     register: prirt
 
-  - name:  Print all ids
-    debug: 
-     var: "{{item}}"
-    loop:
-    - vpout.vpc.id
-    - pubsub1_out.subnet.id
-    - pubsub2_out.subnet.id
-    - pubsub3_out.subnet.id
-    - prisub1_out.subnet.id
-    - prisub2_out.subnet.id
-    - prisub3_out.subnet.id
-    - igwout.gateway_id
-    - natout.nat_gateway_id
-    - pubrt.route_table.id
-    - prirt.route_table.id
+#   - name:  Print all ids
+#     debug: 
+#      var: "{{item}}"
+#     loop:
+#     - vpout.vpc.id
+#     - pubsub1_out.subnet.id
+#     - pubsub2_out.subnet.id
+#     - pubsub3_out.subnet.id
+#     - prisub1_out.subnet.id
+#     - prisub2_out.subnet.id
+#     - prisub3_out.subnet.id
+#     - igwout.gateway_id
+#     - natout.nat_gateway_id
+#     - pubrt.route_table.id
+#     - prirt.route_table.id
 
   - set_fact: 
       vpcid: "{{vpout.vpc.id}}"
