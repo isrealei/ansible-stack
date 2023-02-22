@@ -27,4 +27,37 @@
      mode: 0600
     when: vpro_key.changed
 
-  - name: create security group
+  - name: create load balancer security group
+    ec2_group:
+      name: vproLB_sg
+      description: Allow port 80 from anywhere
+      vpc_id: "{{vpcid}}"
+      region: "{{region}}"
+      rules:
+      - proto: tcp
+        from_port: 80
+        to_port: 80
+        cidr_ip: 0.0.0.0/0
+    register: vproLB_sg
+   
+  - name: create load balancer security group
+     ec2_group:
+      name: vpro_sg
+      description: Allow port 80 from anywhere
+      vpc_id: "{{vpcid}}"
+      region: "{{region}}"
+      purge_rules: no
+      rules:
+      - proto: tcp
+        from_port: 80
+        to_port: 80
+        group_id: "{{vproLB_sg.group_id}}"
+      - proto: tcp
+        from_port: 22
+        to_port: 22
+        group_id: "{{bastsg}}"
+    register: vpro_sg
+
+
+ 
+

@@ -10,6 +10,3 @@ ngwid: nat-08052ce0145e5fa88
 pubrtid: rtb-0f86cb00632e1e3ef
 prirtid: rtb-0e1de1722cdfa2079
 bastsg: sg-09942c9a4fdfe800d
-# BEGIN ANSIBLE MANAGED BLOCK
-basHostid: sg-09942c9a4fdfe800d
-# END ANSIBLE MANAGED BLOCK

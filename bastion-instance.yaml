@@ -66,3 +66,10 @@
         Project: vprofile
         Owner: DevOps Team
     register: bastion_host_out
+
+  - name: add bastion host sg to vars file
+    blockinfile: 
+      path: "vars/output_vars" 
+      backup: yes
+      block: |
+        basHostid: {{bastsg.group_id}}
