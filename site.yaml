@@ -1,4 +1,4 @@
 ---
 - import_playbook: vpc_setup.yaml
 - import_playbook: bastion-instance.yaml
-  #- import_playbook: vpro-ec2-stack.yaml
+- import_playbook: vpro-ec2-stack.yaml
