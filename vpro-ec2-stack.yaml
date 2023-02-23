@@ -20,7 +20,7 @@
       region: "{{region}}"
     register: vpro_key
 
-  - name: Storing key inot text file
+  - name: Storing key into text file
     copy: 
      content: "{{vpro_key.key.private_key}}"
      dest:  "./vpro_key.pem"
@@ -40,7 +40,7 @@
         cidr_ip: 0.0.0.0/0
     register: vproLB_sg
    
-  - name: create load balancer security group
+  - name: create security group for my instances in private subnet
      ec2_group:
       name: vpro_sg
       description: Allow port 80 from anywhere
@@ -55,8 +55,23 @@
       - proto: tcp
         from_port: 22
         to_port: 22
-        group_id: "{{bastsg}}"
+        group_id: "{{basHostid}}"
     register: vpro_sg
+
+
+
+  - name: update security group with its own sg id
+    ec2_group:
+      name: vpro_sg
+      description: Allow 22 from anywhere and all ports within sg 
+      vpc_id: "{{vpcid}}"
+      region: "{{region}}"
+      rules:
+      purge_rules: no
+      - proto: all
+        group_id: "{{vpro_sg.group_id}}"
+  
+
 
 
  
