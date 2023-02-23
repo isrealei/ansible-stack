@@ -9,6 +9,3 @@ igwid: igw-03cc8eab63a4acd36
 ngwid: nat-0b83977016a5de02c
 pubrtid: rtb-0f86cb00632e1e3ef
 prirtid: rtb-0e1de1722cdfa2079
-# BEGIN ANSIBLE MANAGED BLOCK
-basHostid: sg-09942c9a4fdfe800d
-# END ANSIBLE MANAGED BLOCK
