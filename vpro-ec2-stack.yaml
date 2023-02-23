@@ -187,26 +187,26 @@
      var: db01_out.tagged_instances[0].id
 
   - local_action:
-    module: ec2_elb_lb
-    name: "vpro-elb"
-    state: present
-    region: "{{region}}"
-    instance_ids:
-    - "{{db01_out.tagged_instances[0].id}}"
-    zones:
+      module: ec2_elb_lb
+      name: "vpro-elb"
+      state: present
+      region: "{{region}}"
+      instance_ids:
+      - "{{db01_out.tagged_instances[0].id}}"
+      zones:
       - us-east-1a
       - us-east-1b
       - us-east-1c
-    purge_instance_ids: yes
-    security_group_ids: "{{vproLB_sg.group_id}}"
-    subnets:
-    - "{{pub1id}}"
-    - "{{pub2id}}"
-    - "{{pub3id}}"
-    listener: 
-    - protocol: http
-      load_balancer_port: 80
-      instance_port: 80
+      purge_instance_ids: yes
+      security_group_ids: "{{vproLB_sg.group_id}}"
+      subnets:
+      - "{{pub1id}}"
+      - "{{pub2id}}"
+      - "{{pub3id}}"
+      listener: 
+      - protocol: http
+        load_balancer_port: 80
+        instance_port: 80
 
   - name: insert and update hpst ipsand name into a variable file
     blockinfile:
