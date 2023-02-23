@@ -70,6 +70,6 @@
   - name: add bastion host sg to vars file
     blockinfile: 
       path: "vars/output_vars" 
-      backup: yes
+#       backup: yes
       block: |
         basHostid: {{bastsg.group_id}}
