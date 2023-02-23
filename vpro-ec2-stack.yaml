@@ -203,7 +203,7 @@
       - "{{pub1id}}"
       - "{{pub2id}}"
       - "{{pub3id}}"
-      listener: 
+      listeners: 
       - protocol: http
         load_balancer_port: 80
         instance_port: 80
