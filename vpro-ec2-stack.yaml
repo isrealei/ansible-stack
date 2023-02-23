@@ -184,7 +184,7 @@
     register: db01_out
 
   - debug: 
-     var: db01_out
+     var: db01_out.tagged_instances[0].id
 
  
 
