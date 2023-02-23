@@ -41,7 +41,7 @@
     register: vproLB_sg
    
   - name: create security group for my instances in private subnet
-     ec2_group:
+    ec2_group:
       name: vpro_sg
       description: Allow port 80 from anywhere
       vpc_id: "{{vpcid}}"
@@ -63,11 +63,11 @@
   - name: update security group with its own sg id
     ec2_group:
       name: vpro_sg
-      description: Allow 22 from anywhere and all ports within sg 
+      description: Allow port 80 from anywhere
       vpc_id: "{{vpcid}}"
       region: "{{region}}"
-      rules:
       purge_rules: no
+      rules:
       - proto: all
         group_id: "{{vpro_sg.group_id}}"
   
