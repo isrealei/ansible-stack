@@ -71,8 +71,120 @@
       - proto: all
         group_id: "{{vpro_sg.group_id}}"
   
+  
+  - name: Creating nginx web01
+    ec2:
+      key_name: vpro-key
+      instance_type: t2.micro
+      region: "{{region}}"
+      image: "{{nginx_ami}}"
+      wait: yes
+      wait_timeout: 300
+      zone: "{{zone1}}"
+      vpc_subnet_id: "{{pri1id}}"
+      group_id: "{{ vpro_sg.group_id}}"
+      exact_count: 1
+      instance_tags:
+        Name: "web01"
+        Project: vprofile
+        Owner: DevOps-team
+      count_tag:
+        Name: "web01"
+        Project: vprofile
+        Owner: DevOps-team
+    register: web01_out
+
+  - name: Creating tomcat app01
+    ec2:
+      key_name: vpro-key
+      instance_type: t2.micro
+      region: "{{region}}"
+      image: "{{tomcat_ami}}"
+      wait: yes
+      wait_timeout: 300
+      zone: "{{zone1}}"
+      vpc_subnet_id: "{{pri1id}}"
+      group_id: "{{ vpro_sg.group_id}}"
+      exact_count: 1
+      instance_tags:
+        Name: "app01"
+        Project: vprofile
+        Owner: DevOps-team
+      count_tag:
+        Name: "app01"
+        Project: vprofile
+        Owner: DevOps-team
+    register: app01_out
+
+  - name: Creating memcached mc01
+    ec2:
+      key_name: vpro-key
+      instance_type: t2.micro
+      region: "{{region}}"
+      image: "{{memcached_ami}}"
+      wait: yes
+      wait_timeout: 300
+      zone: "{{zone1}}"
+      vpc_subnet_id: "{{pri1id}}"
+      group_id: "{{ vpro_sg.group_id}}"
+      exact_count: 1
+      instance_tags:
+        Name: "mc01"
+        Project: vprofile
+        Owner: DevOps-team
+      count_tag:
+        Name: "mc01"
+        Project: vprofile
+        Owner: DevOps-team
+    register: mc01_out
 
 
+  - name: Creating rabbitmq rmq01
+    ec2:
+      key_name: vpro-key
+      instance_type: t2.micro
+      region: "{{region}}"
+      image: "{{rabbitmq_ami}}"
+      wait: yes
+      wait_timeout: 300
+      zone: "{{zone1}}"
+      vpc_subnet_id: "{{pri1id}}"
+      group_id: "{{ vpro_sg.group_id}}"
+      exact_count: 1
+      instance_tags:
+        Name: "rmq01"
+        Project: vprofile
+        Owner: DevOps-team
+      count_tag:
+        Name: "rmq01"
+        Project: vprofile
+        Owner: DevOps-team
+    register: rmq01_out
+
+  - name: Creating mysql db01
+    ec2:
+      key_name: vpro-key
+      instance_type: t2.micro
+      region: "{{region}}"
+      image: "{{mysql_ami}}"
+      wait: yes
+      wait_timeout: 300
+      zone: "{{zone1}}"
+      vpc_subnet_id: "{{pri1id}}"
+      group_id: "{{ vpro_sg.group_id}}"
+      exact_count: 1
+      instance_tags:
+        Name: "db01"
+        Project: vprofile
+        Owner: DevOps-team
+      count_tag:
+        Name: "db01"
+        Project: vprofile
+        Owner: DevOps-team
+    register: db01_out
+
+  - debug: 
+     var: db01_out
 
  
 
