@@ -193,11 +193,11 @@
       region: "{{region}}"
       instance_ids:
       - "{{db01_out.tagged_instances[0].id}}"
-      zones:
-      - us-east-1a
-      - us-east-1b
-      - us-east-1c
-      purge_instance_ids: yes
+        # zones:
+        # - us-east-1a
+        #- us-east-1b
+        #- us-east-1c
+      purge_instance_ids: true
       security_group_ids: "{{vproLB_sg.group_id}}"
       subnets:
       - "{{pub1id}}"
