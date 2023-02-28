@@ -1,0 +1,43 @@
+2023-02-27 21:50:28,990 p=1343 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro with yaml plugin: YAML
+inventory has invalid structure, it should be a dictionary, got: <class 'ansible.parsing.yaml.objects.AnsibleUnicode'>
+
+2023-02-27 21:50:28,990 p=1343 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro with ini plugin:
+/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro:7: Expected key=value host variable assignment, got:
+ansible
+
+2023-02-27 21:50:28,991 p=1343 u=ubuntu n=ansible | [WARNING]: Unable to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro as an inventory source
+
+2023-02-27 21:50:28,991 p=1343 u=ubuntu n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-02-27 21:50:29,282 p=1343 u=ubuntu n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: local
+
+2023-02-27 21:50:29,283 p=1343 u=ubuntu n=ansible | PLAY [Build, generate artifact, copy artifactn and sql file to file directory] *************************************************************
+2023-02-27 21:50:29,283 p=1343 u=ubuntu n=ansible | skipping: no hosts matched
+2023-02-27 21:50:29,283 p=1343 u=ubuntu n=ansible | PLAY RECAP *********************************************************************************************************************************
+2023-02-27 21:52:57,358 p=1359 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro with yaml plugin: YAML
+inventory has invalid structure, it should be a dictionary, got: <class 'ansible.parsing.yaml.objects.AnsibleUnicode'>
+
+2023-02-27 21:52:57,358 p=1359 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro with ini plugin:
+/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro:7: Expected key=value host variable assignment, got:
+ansible
+
+2023-02-27 21:52:57,358 p=1359 u=ubuntu n=ansible | [WARNING]: Unable to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro as an inventory source
+
+2023-02-27 21:52:57,359 p=1359 u=ubuntu n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-02-27 21:52:57,520 p=1359 u=ubuntu n=ansible | PLAY [Build, generate artifact, copy artifactn and sql file to file directory] *************************************************************
+2023-02-27 21:52:57,545 p=1359 u=ubuntu n=ansible | TASK [Gathering Facts] *********************************************************************************************************************
+2023-02-27 21:52:58,850 p=1359 u=ubuntu n=ansible | ok: [localhost]
+2023-02-27 21:52:58,866 p=1359 u=ubuntu n=ansible | TASK [intsall jdk and maven] ***************************************************************************************************************
+2023-02-27 21:53:38,789 p=1359 u=ubuntu n=ansible | changed: [localhost] => (item=openjdk-8-jdk)
+2023-02-27 21:53:51,668 p=1359 u=ubuntu n=ansible | changed: [localhost] => (item=maven)
+2023-02-27 21:53:51,699 p=1359 u=ubuntu n=ansible | TASK [Clone source code from github] *******************************************************************************************************
+2023-02-27 21:53:56,248 p=1359 u=ubuntu n=ansible | changed: [localhost]
+2023-02-27 21:53:56,260 p=1359 u=ubuntu n=ansible | TASK [Build artifact] **********************************************************************************************************************
+2023-02-27 21:54:37,511 p=1359 u=ubuntu n=ansible | changed: [localhost]
+2023-02-27 21:54:37,539 p=1359 u=ubuntu n=ansible | TASK [copy Artifcat to files diretory] *****************************************************************************************************
+2023-02-27 21:54:39,074 p=1359 u=ubuntu n=ansible | changed: [localhost] => (item=/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/Vprofile-repo/target/vprofile-v2.war)
+2023-02-27 21:54:39,085 p=1359 u=ubuntu n=ansible | TASK [copy SQL file to files directory] ****************************************************************************************************
+2023-02-27 21:54:39,518 p=1359 u=ubuntu n=ansible | changed: [localhost]
+2023-02-27 21:54:39,534 p=1359 u=ubuntu n=ansible | PLAY RECAP *********************************************************************************************************************************
+2023-02-27 21:54:39,534 p=1359 u=ubuntu n=ansible | localhost                  : ok=6    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
