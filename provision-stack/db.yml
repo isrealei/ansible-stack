@@ -54,7 +54,7 @@
     tags:
     - conf
 
-handles:
+handlers:
 - name: Restart mysql
   service: 
      name: mysql
