@@ -6,7 +6,7 @@
     include_vars: group_vars/dbsrvgrp
   - name: copy sql file to dbsvr
     copy:
-      src: file/db_backup.sql
+      src: files/db_backup.sql
       dest: /tmp/db_backup.sql
     tags:
     - deploy
