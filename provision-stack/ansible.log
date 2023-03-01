@@ -633,3 +633,28 @@ https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery
 2023-03-01 20:42:21,368 p=5487 u=ubuntu n=ansible | fatal: [db01]: FAILED! => {"changed": false, "msg": "Destination /etc/mysql/mysql.conf.d/mysql.cnf does not exist !", "rc": 257}
 2023-03-01 20:42:21,371 p=5487 u=ubuntu n=ansible | PLAY RECAP ********************************************************************************************************************************************
 2023-03-01 20:42:21,372 p=5487 u=ubuntu n=ansible | db01                       : ok=5    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-03-01 20:55:20,244 p=5632 u=ubuntu n=ansible | PLAY [set up Mysql with accounts db and remote logins] ************************************************************************************************
+2023-03-01 20:55:20,258 p=5632 u=ubuntu n=ansible | TASK [import db varaiables] ***************************************************************************************************************************
+2023-03-01 20:55:20,277 p=5632 u=ubuntu n=ansible | ok: [db01]
+2023-03-01 20:55:20,283 p=5632 u=ubuntu n=ansible | TASK [installing Mysql service and dependecies] *******************************************************************************************************
+2023-03-01 20:55:22,566 p=5632 u=ubuntu n=ansible | ok: [db01] => (item=mysql-server)
+2023-03-01 20:55:23,807 p=5632 u=ubuntu n=ansible | ok: [db01] => (item=mysql-client)
+2023-03-01 20:55:25,032 p=5632 u=ubuntu n=ansible | ok: [db01] => (item=python-mysqldb)
+2023-03-01 20:55:26,249 p=5632 u=ubuntu n=ansible | ok: [db01] => (item=python3-mysqldb)
+2023-03-01 20:55:27,458 p=5632 u=ubuntu n=ansible | ok: [db01] => (item=libmysqlclient-dev)
+2023-03-01 20:55:27,460 p=5632 u=ubuntu n=ansible | [DEPRECATION WARNING]: Distribution Ubuntu 18.04 on host db01 should use /usr/bin/python3, but is using /usr/bin/python for backward compatibility 
+with prior Ansible releases. A future Ansible release will default to using the discovered platform python for this host. See 
+https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information. This feature will be removed in version 
+2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-03-01 20:55:27,466 p=5632 u=ubuntu n=ansible | TASK [start and enable mysql service] *****************************************************************************************************************
+2023-03-01 20:55:28,427 p=5632 u=ubuntu n=ansible | ok: [db01]
+2023-03-01 20:55:28,434 p=5632 u=ubuntu n=ansible | TASK [Creating mysql user] ****************************************************************************************************************************
+2023-03-01 20:55:28,834 p=5632 u=ubuntu n=ansible | ok: [db01]
+2023-03-01 20:55:28,840 p=5632 u=ubuntu n=ansible | TASK [Creating a database account] ********************************************************************************************************************
+2023-03-01 20:55:29,222 p=5632 u=ubuntu n=ansible | ok: [db01]
+2023-03-01 20:55:29,229 p=5632 u=ubuntu n=ansible | TASK [enable remot login into mysql server] ***********************************************************************************************************
+2023-03-01 20:55:29,586 p=5632 u=ubuntu n=ansible | changed: [db01]
+2023-03-01 20:55:29,592 p=5632 u=ubuntu n=ansible | RUNNING HANDLER [Restart mysql] ***********************************************************************************************************************
+2023-03-01 20:55:32,356 p=5632 u=ubuntu n=ansible | changed: [db01]
+2023-03-01 20:55:32,363 p=5632 u=ubuntu n=ansible | PLAY RECAP ********************************************************************************************************************************************
+2023-03-01 20:55:32,363 p=5632 u=ubuntu n=ansible | db01                       : ok=7    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
