@@ -3,7 +3,7 @@
   gather_facts: no
   tasks:
   - name: import mydb variables
-    import_vars: group_vars/dbsrvgrp
+    include_vars: group_vars/dbsrvgrp
   - name: copy sql file to dbsvr
     copy:
       src: file/db_backup.sql
