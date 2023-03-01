@@ -1,0 +1,34 @@
+- name: Deploy db configuration file
+  hosts: dbsvrgrp
+  gather_facts: no
+  tasks:
+  - name: import mydb variables
+    import_vars: group_vars/dbsrvgrp
+  - name: copy sql file to dbsvr
+    copy:
+      src: file/db_backup.sql
+      dest: /tmp/db_backup.sql
+    tags:
+    - deploy
+
+  - name: Restoring DB
+    mysql_db:
+     login_user: "{{dbuser}}"
+     login_password: "{{dbpass}}"
+     name: "{{dbname}}"
+     state: import
+     target: /tmp/db_backup.sql
+    notify:
+    - Restart mysql
+    tags:
+    - deploy
+
+  handlers:
+  - name: Restart mysql
+    service:
+      name: mysql
+      state: restarted 
+
+
+
+
