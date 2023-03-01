@@ -542,3 +542,46 @@ stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro:7: Expected ke
 2023-03-01 17:57:55,732 p=4549 u=ubuntu n=ansible | mc01                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 2023-03-01 17:57:55,732 p=4549 u=ubuntu n=ansible | rmq01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 2023-03-01 17:57:55,732 p=4549 u=ubuntu n=ansible | web01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 20:29:04,546 p=5232 u=ubuntu n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  did not find expected '-' indicator
+
+The error appears to be in '/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/db.yml': line 57, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+handles:
+^ here
+
+2023-03-01 20:30:52,865 p=5252 u=ubuntu n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  did not find expected '-' indicator
+
+The error appears to be in '/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/db.yml': line 57, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+handlers:
+^ here
+
+2023-03-01 20:34:45,089 p=5264 u=ubuntu n=ansible | PLAY [set up Mysql with accounts db and remote logins] ************************************************************************************************
+2023-03-01 20:34:45,103 p=5264 u=ubuntu n=ansible | TASK [installing Mysql service and dependecies] *******************************************************************************************************
+2023-03-01 20:35:43,921 p=5264 u=ubuntu n=ansible | changed: [db01] => (item=mysql-server)
+2023-03-01 20:35:47,987 p=5264 u=ubuntu n=ansible | changed: [db01] => (item=mysql-client)
+2023-03-01 20:35:54,390 p=5264 u=ubuntu n=ansible | changed: [db01] => (item=python-mysqldb)
+2023-03-01 20:35:58,109 p=5264 u=ubuntu n=ansible | changed: [db01] => (item=python3-mysqldb)
+2023-03-01 20:36:11,510 p=5264 u=ubuntu n=ansible | changed: [db01] => (item=libmysqlclient-dev)
+2023-03-01 20:36:11,518 p=5264 u=ubuntu n=ansible | TASK [start and enable mysql service] *****************************************************************************************************************
+2023-03-01 20:36:12,756 p=5264 u=ubuntu n=ansible | ok: [db01]
+2023-03-01 20:36:12,763 p=5264 u=ubuntu n=ansible | TASK [Creating mysql user] ****************************************************************************************************************************
+2023-03-01 20:36:12,795 p=5264 u=ubuntu n=ansible | fatal: [db01]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'dbuser' is undefined\n\nThe error appears to be in '/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/db.yml': line 31, column 5, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n  - name: Creating mysql user\n    ^ here\n"}
+2023-03-01 20:36:12,798 p=5264 u=ubuntu n=ansible | PLAY RECAP ********************************************************************************************************************************************
+2023-03-01 20:36:12,798 p=5264 u=ubuntu n=ansible | db01                       : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
