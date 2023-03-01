@@ -387,3 +387,93 @@ ansible
 2023-02-28 20:28:35,793 p=9657 u=ubuntu n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 2023-02-28 20:28:35,793 p=9657 u=ubuntu n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 2023-02-28 20:28:35,794 p=9657 u=ubuntu n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:27:06,015 p=2343 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro with script plugin: problem running
+/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro --list ([Errno 8] Exec format error: '/home/ubuntu/vpc-stack-
+vpprofile/Ansible-play-books/provision-stack/inventory-vpro')
+
+2023-03-01 17:27:06,016 p=2343 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro with yaml plugin: YAML inventory has
+invalid structure, it should be a dictionary, got: <class 'ansible.parsing.yaml.objects.AnsibleUnicode'>
+
+2023-03-01 17:27:06,017 p=2343 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro with ini plugin: /home/ubuntu/vpc-
+stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro:7: Expected key=value host variable assignment, got: ansible
+
+2023-03-01 17:27:06,017 p=2343 u=ubuntu n=ansible | [WARNING]: Unable to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro as an inventory source
+
+2023-03-01 17:27:06,017 p=2343 u=ubuntu n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-03-01 17:27:06,197 p=2343 u=ubuntu n=ansible | ERROR! Unable to retrieve file contents
+Could not find or access '/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/db.yml' on the Ansible Controller.
+If you are using a module and expect the file to exist on the remote, see the remote_src option
+2023-03-01 17:27:51,063 p=2349 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro with script plugin: problem running
+/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro --list ([Errno 8] Exec format error: '/home/ubuntu/vpc-stack-
+vpprofile/Ansible-play-books/provision-stack/inventory-vpro')
+
+2023-03-01 17:27:51,063 p=2349 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro with yaml plugin: YAML inventory has
+invalid structure, it should be a dictionary, got: <class 'ansible.parsing.yaml.objects.AnsibleUnicode'>
+
+2023-03-01 17:27:51,064 p=2349 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro with ini plugin: /home/ubuntu/vpc-
+stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro:7: Expected key=value host variable assignment, got: ansible
+
+2023-03-01 17:27:51,064 p=2349 u=ubuntu n=ansible | [WARNING]: Unable to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro as an inventory source
+
+2023-03-01 17:27:51,064 p=2349 u=ubuntu n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-03-01 17:27:51,228 p=2349 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ********************************************************************
+2023-03-01 17:27:51,238 p=2349 u=ubuntu n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************
+2023-03-01 17:27:51,373 p=2349 u=ubuntu n=ansible | fatal: [web01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Warning: Permanently added '172.20.4.106' (ED25519) to the list of known hosts.\r\nubuntu@172.20.4.106: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:27:51,401 p=2349 u=ubuntu n=ansible | fatal: [app01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Warning: Permanently added '172.20.4.130' (ED25519) to the list of known hosts.\r\nubuntu@172.20.4.130: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:27:51,414 p=2349 u=ubuntu n=ansible | fatal: [db01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Warning: Permanently added '172.20.4.220' (ED25519) to the list of known hosts.\r\nubuntu@172.20.4.220: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:27:51,454 p=2349 u=ubuntu n=ansible | fatal: [mc01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Warning: Permanently added '172.20.4.152' (ED25519) to the list of known hosts.\r\nubuntu@172.20.4.152: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:27:51,457 p=2349 u=ubuntu n=ansible | fatal: [rmq01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Warning: Permanently added '172.20.4.96' (ED25519) to the list of known hosts.\r\nubuntu@172.20.4.96: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:27:51,459 p=2349 u=ubuntu n=ansible | PLAY RECAP ********************************************************************************************************************************************
+2023-03-01 17:27:51,459 p=2349 u=ubuntu n=ansible | app01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:27:51,459 p=2349 u=ubuntu n=ansible | db01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:27:51,459 p=2349 u=ubuntu n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:27:51,460 p=2349 u=ubuntu n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:27:51,460 p=2349 u=ubuntu n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:35:05,228 p=4041 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro with script plugin: problem running
+/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro --list ([Errno 8] Exec format error: '/home/ubuntu/vpc-stack-
+vpprofile/Ansible-play-books/provision-stack/inventory-vpro')
+
+2023-03-01 17:35:05,229 p=4041 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro with yaml plugin: YAML inventory has
+invalid structure, it should be a dictionary, got: <class 'ansible.parsing.yaml.objects.AnsibleUnicode'>
+
+2023-03-01 17:35:05,229 p=4041 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro with ini plugin: /home/ubuntu/vpc-
+stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro:7: Expected key=value host variable assignment, got: ansible
+
+2023-03-01 17:35:05,229 p=4041 u=ubuntu n=ansible | [WARNING]: Unable to parse /home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro as an inventory source
+
+2023-03-01 17:35:05,229 p=4041 u=ubuntu n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-03-01 17:35:05,541 p=4041 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ********************************************************************
+2023-03-01 17:35:05,559 p=4041 u=ubuntu n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************
+2023-03-01 17:35:06,796 p=4041 u=ubuntu n=ansible | fatal: [web01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.106: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:35:06,833 p=4041 u=ubuntu n=ansible | fatal: [app01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.130: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:35:06,849 p=4041 u=ubuntu n=ansible | fatal: [db01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.220: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:35:06,874 p=4041 u=ubuntu n=ansible | fatal: [mc01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.152: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:35:06,883 p=4041 u=ubuntu n=ansible | fatal: [rmq01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.96: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:35:06,884 p=4041 u=ubuntu n=ansible | PLAY RECAP ********************************************************************************************************************************************
+2023-03-01 17:35:06,884 p=4041 u=ubuntu n=ansible | app01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:35:06,884 p=4041 u=ubuntu n=ansible | db01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:35:06,884 p=4041 u=ubuntu n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:35:06,885 p=4041 u=ubuntu n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:35:06,885 p=4041 u=ubuntu n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:39:03,302 p=4093 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ********************************************************************
+2023-03-01 17:39:03,312 p=4093 u=ubuntu n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************
+2023-03-01 17:39:04,527 p=4093 u=ubuntu n=ansible | fatal: [mc011]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname mc011: Temporary failure in name resolution", "unreachable": true}
+2023-03-01 17:39:04,612 p=4093 u=ubuntu n=ansible | fatal: [mc01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.152: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:39:04,628 p=4093 u=ubuntu n=ansible | fatal: [web01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: no such identity: vpro-key.pem: No such file or directory\r\nubuntu@172.20.4.106: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:39:04,648 p=4093 u=ubuntu n=ansible | fatal: [app01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: no such identity: vpro-key.pem: No such file or directory\r\nubuntu@172.20.4.130: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:39:04,667 p=4093 u=ubuntu n=ansible | fatal: [rmq01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: no such identity: vpro-key.pem: No such file or directory\r\nubuntu@172.20.4.96: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:39:05,748 p=4093 u=ubuntu n=ansible | fatal: [db01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: no such identity: vpro-key.pem: No such file or directory\r\nubuntu@172.20.4.220: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:39:06,029 p=4093 u=ubuntu n=ansible | ok: [cntl]
+2023-03-01 17:39:06,047 p=4093 u=ubuntu n=ansible | TASK [Import VPC setup Variable] **********************************************************************************************************************
+2023-03-01 17:39:06,062 p=4093 u=ubuntu n=ansible | fatal: [cntl]: FAILED! => {"ansible_facts": {}, "ansible_included_var_files": [], "changed": false, "message": "Could not find or access 'group_vars/hostsip'\nSearched in:\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/vars/group_vars/hostsip\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/group_vars/hostsip\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/vars/group_vars/hostsip\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/group_vars/hostsip on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2023-03-01 17:39:06,064 p=4093 u=ubuntu n=ansible | PLAY RECAP ********************************************************************************************************************************************
+2023-03-01 17:39:06,065 p=4093 u=ubuntu n=ansible | app01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:39:06,065 p=4093 u=ubuntu n=ansible | cntl                       : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:39:06,065 p=4093 u=ubuntu n=ansible | db01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:39:06,065 p=4093 u=ubuntu n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:39:06,065 p=4093 u=ubuntu n=ansible | mc011                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:39:06,065 p=4093 u=ubuntu n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:39:06,066 p=4093 u=ubuntu n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
