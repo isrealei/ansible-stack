@@ -3,6 +3,9 @@
   hosts: dbsvrgrp
   gather_facts: no
   tasks:
+  - name: import db varaiables
+    include_vars: group_vars/dbsrvgrp
+
   - name: installing Mysql service and dependecies
     package: 
       name: "{{item}}" 
