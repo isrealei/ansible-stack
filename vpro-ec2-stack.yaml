@@ -228,7 +228,7 @@
        db01  ansible_host={{db01_out.tagged_instances[0].private_ip}}
        mc01  ansible_host={{mc01_out.tagged_instances[0].private_ip}}
        rmq01 ansible_host={{rmq01_out.tagged_instances[0].private_ip}}
-       cntl  ansible_host=127.0.0.1 ansible connection_local
+       cntl  ansible_host=127.0.0.1 ansible_connection=local
       
        [websvrgrp]
        web01
@@ -237,7 +237,7 @@
        app01
 
        [mcsvrgrp]
-       mc011
+       mc01
 
        [rmqsvrgrp]
        rmq01
