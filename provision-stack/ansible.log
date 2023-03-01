@@ -477,3 +477,68 @@ stack-vpprofile/Ansible-play-books/provision-stack/inventory-vpro:7: Expected ke
 2023-03-01 17:39:06,065 p=4093 u=ubuntu n=ansible | mc011                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 2023-03-01 17:39:06,065 p=4093 u=ubuntu n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 2023-03-01 17:39:06,066 p=4093 u=ubuntu n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:45:30,792 p=4245 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ********************************************************************
+2023-03-01 17:45:30,802 p=4245 u=ubuntu n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************
+2023-03-01 17:45:32,041 p=4245 u=ubuntu n=ansible | fatal: [web01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: no such identity: vpro-key.pem: No such file or directory\r\nubuntu@172.20.4.106: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:45:32,075 p=4245 u=ubuntu n=ansible | fatal: [app01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: no such identity: vpro-key.pem: No such file or directory\r\nubuntu@172.20.4.130: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:45:32,112 p=4245 u=ubuntu n=ansible | fatal: [mc01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: no such identity: vpro-key.pem: No such file or directory\r\nubuntu@172.20.4.152: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:45:32,129 p=4245 u=ubuntu n=ansible | fatal: [rmq01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: no such identity: vpro-key.pem: No such file or directory\r\nubuntu@172.20.4.96: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:45:32,132 p=4245 u=ubuntu n=ansible | fatal: [db01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: no such identity: vpro-key.pem: No such file or directory\r\nubuntu@172.20.4.220: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:45:33,298 p=4245 u=ubuntu n=ansible | ok: [cntl]
+2023-03-01 17:45:33,316 p=4245 u=ubuntu n=ansible | TASK [Import VPC setup Variable] **********************************************************************************************************************
+2023-03-01 17:45:33,329 p=4245 u=ubuntu n=ansible | fatal: [cntl]: FAILED! => {"ansible_facts": {}, "ansible_included_var_files": [], "changed": false, "message": "Could not find or access 'group_vars/hostsip'\nSearched in:\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/vars/group_vars/hostsip\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/group_vars/hostsip\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/vars/group_vars/hostsip\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/group_vars/hostsip on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2023-03-01 17:45:33,331 p=4245 u=ubuntu n=ansible | PLAY RECAP ********************************************************************************************************************************************
+2023-03-01 17:45:33,332 p=4245 u=ubuntu n=ansible | app01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:45:33,332 p=4245 u=ubuntu n=ansible | cntl                       : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:45:33,332 p=4245 u=ubuntu n=ansible | db01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:45:33,332 p=4245 u=ubuntu n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:45:33,332 p=4245 u=ubuntu n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:45:33,332 p=4245 u=ubuntu n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:55:57,655 p=4390 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ********************************************************************
+2023-03-01 17:55:57,665 p=4390 u=ubuntu n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************
+2023-03-01 17:55:58,912 p=4390 u=ubuntu n=ansible | fatal: [web01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: no such identity: vpro-key.pem: No such file or directory\r\nubuntu@172.20.4.106: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:55:58,926 p=4390 u=ubuntu n=ansible | fatal: [app01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: no such identity: vpro-key.pem: No such file or directory\r\nubuntu@172.20.4.130: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:55:58,976 p=4390 u=ubuntu n=ansible | fatal: [mc01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: no such identity: vpro-key.pem: No such file or directory\r\nubuntu@172.20.4.152: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:55:58,985 p=4390 u=ubuntu n=ansible | fatal: [rmq01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: no such identity: vpro-key.pem: No such file or directory\r\nubuntu@172.20.4.96: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:55:59,012 p=4390 u=ubuntu n=ansible | fatal: [db01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: no such identity: vpro-key.pem: No such file or directory\r\nubuntu@172.20.4.220: Permission denied (publickey).", "unreachable": true}
+2023-03-01 17:56:00,187 p=4390 u=ubuntu n=ansible | ok: [cntl]
+2023-03-01 17:56:00,205 p=4390 u=ubuntu n=ansible | TASK [Import VPC setup Variable] **********************************************************************************************************************
+2023-03-01 17:56:00,219 p=4390 u=ubuntu n=ansible | ok: [cntl]
+2023-03-01 17:56:00,228 p=4390 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ************************************************************************************************************
+2023-03-01 17:56:00,640 p=4390 u=ubuntu n=ansible | changed: [cntl]
+2023-03-01 17:56:00,657 p=4390 u=ubuntu n=ansible | PLAY RECAP ********************************************************************************************************************************************
+2023-03-01 17:56:00,657 p=4390 u=ubuntu n=ansible | app01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:56:00,657 p=4390 u=ubuntu n=ansible | cntl                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:56:00,657 p=4390 u=ubuntu n=ansible | db01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:56:00,657 p=4390 u=ubuntu n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:56:00,658 p=4390 u=ubuntu n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:56:00,658 p=4390 u=ubuntu n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:57:50,395 p=4549 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ********************************************************************
+2023-03-01 17:57:50,405 p=4549 u=ubuntu n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************
+2023-03-01 17:57:53,304 p=4549 u=ubuntu n=ansible | ok: [db01]
+2023-03-01 17:57:53,556 p=4549 u=ubuntu n=ansible | ok: [mc01]
+2023-03-01 17:57:53,565 p=4549 u=ubuntu n=ansible | ok: [web01]
+2023-03-01 17:57:53,586 p=4549 u=ubuntu n=ansible | ok: [rmq01]
+2023-03-01 17:57:53,633 p=4549 u=ubuntu n=ansible | ok: [app01]
+2023-03-01 17:57:54,340 p=4549 u=ubuntu n=ansible | ok: [cntl]
+2023-03-01 17:57:54,356 p=4549 u=ubuntu n=ansible | TASK [Import VPC setup Variable] **********************************************************************************************************************
+2023-03-01 17:57:54,404 p=4549 u=ubuntu n=ansible | ok: [web01]
+2023-03-01 17:57:54,428 p=4549 u=ubuntu n=ansible | ok: [app01]
+2023-03-01 17:57:54,448 p=4549 u=ubuntu n=ansible | ok: [mc01]
+2023-03-01 17:57:54,468 p=4549 u=ubuntu n=ansible | ok: [rmq01]
+2023-03-01 17:57:54,471 p=4549 u=ubuntu n=ansible | ok: [db01]
+2023-03-01 17:57:54,477 p=4549 u=ubuntu n=ansible | ok: [cntl]
+2023-03-01 17:57:54,485 p=4549 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ************************************************************************************************************
+2023-03-01 17:57:55,411 p=4549 u=ubuntu n=ansible | changed: [mc01]
+2023-03-01 17:57:55,412 p=4549 u=ubuntu n=ansible | changed: [web01]
+2023-03-01 17:57:55,413 p=4549 u=ubuntu n=ansible | changed: [rmq01]
+2023-03-01 17:57:55,413 p=4549 u=ubuntu n=ansible | changed: [db01]
+2023-03-01 17:57:55,414 p=4549 u=ubuntu n=ansible | changed: [app01]
+2023-03-01 17:57:55,714 p=4549 u=ubuntu n=ansible | ok: [cntl]
+2023-03-01 17:57:55,731 p=4549 u=ubuntu n=ansible | PLAY RECAP ********************************************************************************************************************************************
+2023-03-01 17:57:55,731 p=4549 u=ubuntu n=ansible | app01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:57:55,731 p=4549 u=ubuntu n=ansible | cntl                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:57:55,732 p=4549 u=ubuntu n=ansible | db01                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:57:55,732 p=4549 u=ubuntu n=ansible | mc01                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:57:55,732 p=4549 u=ubuntu n=ansible | rmq01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 17:57:55,732 p=4549 u=ubuntu n=ansible | web01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
