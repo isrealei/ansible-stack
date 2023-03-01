@@ -45,7 +45,7 @@
 
   - name:  enable remot login into mysql server
     lineinfile:
-      path: /etc/mysql/mysql.conf.d/mysql.cnf
+      path: /etc/mysql/mysql.conf.d/mysqld.cnf
       regexp: '^bind-address'
       line: 'bind-address = 0.0.0.0'
       backup: yes
