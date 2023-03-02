@@ -7,7 +7,7 @@ pri1id: subnet-09e2042e1fd0f04f9
 pri2id: subnet-09b3f673f48a0bd5b
 pri3id: subnet-069689c5e4db0c05d
 igwid: igw-03cc8eab63a4acd36
-ngwid: nat-0dabd962c595f49ed
+ngwid: nat-02a98d4b0fc348bf4
 pubrtid: rtb-0f86cb00632e1e3ef
 prirtid: rtb-0e1de1722cdfa2079
 # BEGIN ANSIBLE MANAGED BLOCK

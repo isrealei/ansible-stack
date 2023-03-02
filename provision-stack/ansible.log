@@ -658,3 +658,56 @@ https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery
 2023-03-01 20:55:32,356 p=5632 u=ubuntu n=ansible | changed: [db01]
 2023-03-01 20:55:32,363 p=5632 u=ubuntu n=ansible | PLAY RECAP ********************************************************************************************************************************************
 2023-03-01 20:55:32,363 p=5632 u=ubuntu n=ansible | db01                       : ok=7    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 23:18:32,305 p=6190 u=ubuntu n=ansible | ERROR! this task 'import_vars' has extra params, which is only allowed in the following modules: ansible.builtin.import_role, add_host, ansible.legacy.script, import_tasks, ansible.builtin.win_shell, shell, ansible.windows.win_command, ansible.builtin.win_command, ansible.builtin.set_fact, ansible.builtin.command, ansible.builtin.script, command, ansible.legacy.include_vars, ansible.builtin.add_host, ansible.builtin.raw, ansible.builtin.import_tasks, ansible.legacy.win_shell, ansible.windows.win_shell, include_vars, win_shell, ansible.builtin.meta, include_tasks, ansible.legacy.include, ansible.legacy.include_tasks, ansible.builtin.include_role, include, ansible.legacy.win_command, ansible.legacy.group_by, ansible.legacy.import_role, ansible.legacy.shell, ansible.legacy.set_fact, ansible.legacy.raw, win_command, ansible.builtin.group_by, ansible.legacy.add_host, ansible.legacy.meta, ansible.builtin.include_tasks, raw, ansible.builtin.include_vars, group_by, ansible.legacy.include_role, import_role, include_role, meta, ansible.legacy.command, script, ansible.builtin.include, ansible.legacy.import_tasks, set_fact, ansible.builtin.shell
+
+The error appears to be in '/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/dbdeploy.yml': line 5, column 5, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+  - name: import mydb variables
+    ^ here
+
+2023-03-01 23:20:09,370 p=6204 u=ubuntu n=ansible | PLAY [Deploy db configuration file] ********************************************************************************************************************
+2023-03-01 23:20:09,383 p=6204 u=ubuntu n=ansible | TASK [import mydb variables] ***************************************************************************************************************************
+2023-03-01 23:20:09,402 p=6204 u=ubuntu n=ansible | ok: [db01]
+2023-03-01 23:20:09,408 p=6204 u=ubuntu n=ansible | TASK [copy sql file to dbsvr] **************************************************************************************************************************
+2023-03-01 23:20:09,988 p=6204 u=ubuntu n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2023-03-01 23:20:09,989 p=6204 u=ubuntu n=ansible | fatal: [db01]: FAILED! => {"changed": false, "msg": "Could not find or access 'file/db_backup.sql'\nSearched in:\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/files/file/db_backup.sql\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/file/db_backup.sql\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/files/file/db_backup.sql\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/file/db_backup.sql on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2023-03-01 23:20:09,992 p=6204 u=ubuntu n=ansible | PLAY RECAP *********************************************************************************************************************************************
+2023-03-01 23:20:09,992 p=6204 u=ubuntu n=ansible | db01                       : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-03-01 23:21:29,920 p=6220 u=ubuntu n=ansible | PLAY [Deploy db configuration file] ********************************************************************************************************************
+2023-03-01 23:21:29,934 p=6220 u=ubuntu n=ansible | TASK [import mydb variables] ***************************************************************************************************************************
+2023-03-01 23:21:29,952 p=6220 u=ubuntu n=ansible | ok: [db01]
+2023-03-01 23:21:29,957 p=6220 u=ubuntu n=ansible | TASK [copy sql file to dbsvr] **************************************************************************************************************************
+2023-03-01 23:21:30,508 p=6220 u=ubuntu n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2023-03-01 23:21:30,509 p=6220 u=ubuntu n=ansible | fatal: [db01]: FAILED! => {"changed": false, "msg": "Could not find or access 'file/db_backup.sql'\nSearched in:\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/files/file/db_backup.sql\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/file/db_backup.sql\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/files/file/db_backup.sql\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/file/db_backup.sql on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2023-03-01 23:21:30,511 p=6220 u=ubuntu n=ansible | PLAY RECAP *********************************************************************************************************************************************
+2023-03-01 23:21:30,512 p=6220 u=ubuntu n=ansible | db01                       : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-03-01 23:21:37,081 p=6245 u=ubuntu n=ansible | PLAY [Deploy db configuration file] ********************************************************************************************************************
+2023-03-01 23:21:37,095 p=6245 u=ubuntu n=ansible | TASK [import mydb variables] ***************************************************************************************************************************
+2023-03-01 23:21:37,114 p=6245 u=ubuntu n=ansible | ok: [db01]
+2023-03-01 23:21:37,119 p=6245 u=ubuntu n=ansible | TASK [copy sql file to dbsvr] **************************************************************************************************************************
+2023-03-01 23:21:37,800 p=6245 u=ubuntu n=ansible | [DEPRECATION WARNING]: Distribution Ubuntu 18.04 on host db01 should use /usr/bin/python3, but is using /usr/bin/python for backward compatibility with
+ prior Ansible releases. A future Ansible release will default to using the discovered platform python for this host. See 
+https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information. This feature will be removed in version 
+2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-03-01 23:21:37,800 p=6245 u=ubuntu n=ansible | changed: [db01]
+2023-03-01 23:21:37,806 p=6245 u=ubuntu n=ansible | TASK [Restoring DB] ************************************************************************************************************************************
+2023-03-01 23:21:38,284 p=6245 u=ubuntu n=ansible | changed: [db01]
+2023-03-01 23:21:38,290 p=6245 u=ubuntu n=ansible | RUNNING HANDLER [Restart mysql] ************************************************************************************************************************
+2023-03-01 23:21:41,502 p=6245 u=ubuntu n=ansible | changed: [db01]
+2023-03-01 23:21:41,509 p=6245 u=ubuntu n=ansible | PLAY RECAP *********************************************************************************************************************************************
+2023-03-01 23:21:41,510 p=6245 u=ubuntu n=ansible | db01                       : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-01 23:27:42,896 p=6307 u=ubuntu n=ansible | PLAY [Install Memcache, Start & enable SVC] ************************************************************************************************************
+2023-03-01 23:27:42,909 p=6307 u=ubuntu n=ansible | TASK [Install Memcache] ********************************************************************************************************************************
+2023-03-01 23:28:15,902 p=6307 u=ubuntu n=ansible | changed: [mc01]
+2023-03-01 23:28:15,908 p=6307 u=ubuntu n=ansible | TASK [Start & Enable Memcache] *************************************************************************************************************************
+2023-03-01 23:28:17,468 p=6307 u=ubuntu n=ansible | ok: [mc01]
+2023-03-01 23:28:17,476 p=6307 u=ubuntu n=ansible | TASK [Enable remote login to memecache] ****************************************************************************************************************
+2023-03-01 23:28:17,899 p=6307 u=ubuntu n=ansible | changed: [mc01]
+2023-03-01 23:28:17,905 p=6307 u=ubuntu n=ansible | RUNNING HANDLER [Restart memcached] ********************************************************************************************************************
+2023-03-01 23:28:18,870 p=6307 u=ubuntu n=ansible | changed: [mc01]
+2023-03-01 23:28:18,877 p=6307 u=ubuntu n=ansible | PLAY RECAP *********************************************************************************************************************************************
+2023-03-01 23:28:18,878 p=6307 u=ubuntu n=ansible | mc01                       : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
