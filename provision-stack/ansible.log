@@ -716,3 +716,113 @@ https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery
 2023-03-02 23:19:05,438 p=908 u=ubuntu n=ansible | fatal: [mc01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.152 port 22: Connection timed out", "unreachable": true}
 2023-03-02 23:19:05,440 p=908 u=ubuntu n=ansible | PLAY RECAP *********************************************************************************************************************************************
 2023-03-02 23:19:05,440 p=908 u=ubuntu n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-05 21:48:14,773 p=2051 u=ubuntu n=ansible | PLAY [Build, generate artifact, copy artifactn and sql file to file directory] ***********************************************************************
+2023-03-05 21:48:14,783 p=2051 u=ubuntu n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2023-03-05 21:48:15,886 p=2051 u=ubuntu n=ansible | ok: [localhost]
+2023-03-05 21:48:15,920 p=2051 u=ubuntu n=ansible | TASK [intsall jdk and maven] *************************************************************************************************************************
+2023-03-05 21:48:30,058 p=2051 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2023-03-05 21:48:32,516 p=2051 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2023-03-05 21:48:32,527 p=2051 u=ubuntu n=ansible | TASK [Clone source code from github] *****************************************************************************************************************
+2023-03-05 21:48:33,312 p=2051 u=ubuntu n=ansible | ok: [localhost]
+2023-03-05 21:48:33,329 p=2051 u=ubuntu n=ansible | TASK [Build artifact] ********************************************************************************************************************************
+2023-03-05 21:48:33,362 p=2051 u=ubuntu n=ansible | skipping: [localhost]
+2023-03-05 21:48:33,372 p=2051 u=ubuntu n=ansible | TASK [copy Artifcat to files diretory] ***************************************************************************************************************
+2023-03-05 21:48:35,273 p=2051 u=ubuntu n=ansible | ok: [localhost] => (item=/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/Vprofile-repo/target/vprofile-v2.war)
+2023-03-05 21:48:35,284 p=2051 u=ubuntu n=ansible | TASK [copy SQL file to files directory] **************************************************************************************************************
+2023-03-05 21:48:35,722 p=2051 u=ubuntu n=ansible | ok: [localhost]
+2023-03-05 21:48:35,739 p=2051 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] *******************************************************************
+2023-03-05 21:48:35,743 p=2051 u=ubuntu n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2023-03-05 21:48:38,546 p=2051 u=ubuntu n=ansible | ok: [db01]
+2023-03-05 21:48:38,810 p=2051 u=ubuntu n=ansible | ok: [app01]
+2023-03-05 21:48:38,913 p=2051 u=ubuntu n=ansible | ok: [web01]
+2023-03-05 21:48:38,983 p=2051 u=ubuntu n=ansible | ok: [rmq01]
+2023-03-05 21:48:39,346 p=2051 u=ubuntu n=ansible | ok: [mc01]
+2023-03-05 21:48:39,596 p=2051 u=ubuntu n=ansible | ok: [cntl]
+2023-03-05 21:48:39,615 p=2051 u=ubuntu n=ansible | TASK [Import VPC setup Variable] *********************************************************************************************************************
+2023-03-05 21:48:39,662 p=2051 u=ubuntu n=ansible | ok: [web01]
+2023-03-05 21:48:39,681 p=2051 u=ubuntu n=ansible | ok: [app01]
+2023-03-05 21:48:39,701 p=2051 u=ubuntu n=ansible | ok: [mc01]
+2023-03-05 21:48:39,721 p=2051 u=ubuntu n=ansible | ok: [rmq01]
+2023-03-05 21:48:39,725 p=2051 u=ubuntu n=ansible | ok: [db01]
+2023-03-05 21:48:39,730 p=2051 u=ubuntu n=ansible | ok: [cntl]
+2023-03-05 21:48:39,739 p=2051 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ***********************************************************************************************************
+2023-03-05 21:48:40,656 p=2051 u=ubuntu n=ansible | changed: [db01]
+2023-03-05 21:48:40,659 p=2051 u=ubuntu n=ansible | changed: [mc01]
+2023-03-05 21:48:40,661 p=2051 u=ubuntu n=ansible | changed: [web01]
+2023-03-05 21:48:40,661 p=2051 u=ubuntu n=ansible | changed: [app01]
+2023-03-05 21:48:40,662 p=2051 u=ubuntu n=ansible | changed: [rmq01]
+2023-03-05 21:48:40,927 p=2051 u=ubuntu n=ansible | changed: [cntl]
+2023-03-05 21:48:40,944 p=2051 u=ubuntu n=ansible | PLAY [set up Mysql with accounts db and remote logins] ***********************************************************************************************
+2023-03-05 21:48:40,958 p=2051 u=ubuntu n=ansible | TASK [import db varaiables] **************************************************************************************************************************
+2023-03-05 21:48:40,973 p=2051 u=ubuntu n=ansible | ok: [db01]
+2023-03-05 21:48:40,982 p=2051 u=ubuntu n=ansible | TASK [installing Mysql service and dependecies] ******************************************************************************************************
+2023-03-05 21:49:14,305 p=2051 u=ubuntu n=ansible | changed: [db01] => (item=mysql-server)
+2023-03-05 21:49:17,872 p=2051 u=ubuntu n=ansible | changed: [db01] => (item=mysql-client)
+2023-03-05 21:49:23,884 p=2051 u=ubuntu n=ansible | changed: [db01] => (item=python-mysqldb)
+2023-03-05 21:49:27,198 p=2051 u=ubuntu n=ansible | changed: [db01] => (item=python3-mysqldb)
+2023-03-05 21:49:40,386 p=2051 u=ubuntu n=ansible | changed: [db01] => (item=libmysqlclient-dev)
+2023-03-05 21:49:40,398 p=2051 u=ubuntu n=ansible | TASK [start and enable mysql service] ****************************************************************************************************************
+2023-03-05 21:49:41,191 p=2051 u=ubuntu n=ansible | ok: [db01]
+2023-03-05 21:49:41,202 p=2051 u=ubuntu n=ansible | TASK [Creating mysql user] ***************************************************************************************************************************
+2023-03-05 21:49:41,787 p=2051 u=ubuntu n=ansible | changed: [db01]
+2023-03-05 21:49:41,797 p=2051 u=ubuntu n=ansible | TASK [Creating a database account] *******************************************************************************************************************
+2023-03-05 21:49:42,264 p=2051 u=ubuntu n=ansible | changed: [db01]
+2023-03-05 21:49:42,274 p=2051 u=ubuntu n=ansible | TASK [enable remot login into mysql server] **********************************************************************************************************
+2023-03-05 21:49:42,700 p=2051 u=ubuntu n=ansible | changed: [db01]
+2023-03-05 21:49:42,710 p=2051 u=ubuntu n=ansible | RUNNING HANDLER [Restart mysql] **********************************************************************************************************************
+2023-03-05 21:49:45,300 p=2051 u=ubuntu n=ansible | changed: [db01]
+2023-03-05 21:49:45,312 p=2051 u=ubuntu n=ansible | PLAY [Deploy db configuration file] ******************************************************************************************************************
+2023-03-05 21:49:45,326 p=2051 u=ubuntu n=ansible | TASK [import mydb variables] *************************************************************************************************************************
+2023-03-05 21:49:45,341 p=2051 u=ubuntu n=ansible | ok: [db01]
+2023-03-05 21:49:45,350 p=2051 u=ubuntu n=ansible | TASK [copy sql file to dbsvr] ************************************************************************************************************************
+2023-03-05 21:49:46,023 p=2051 u=ubuntu n=ansible | changed: [db01]
+2023-03-05 21:49:46,033 p=2051 u=ubuntu n=ansible | TASK [Restoring DB] **********************************************************************************************************************************
+2023-03-05 21:49:46,459 p=2051 u=ubuntu n=ansible | changed: [db01]
+2023-03-05 21:49:46,468 p=2051 u=ubuntu n=ansible | RUNNING HANDLER [Restart mysql] **********************************************************************************************************************
+2023-03-05 21:49:48,499 p=2051 u=ubuntu n=ansible | changed: [db01]
+2023-03-05 21:49:48,510 p=2051 u=ubuntu n=ansible | PLAY [Install Memcache, Start & enable SVC] **********************************************************************************************************
+2023-03-05 21:49:48,524 p=2051 u=ubuntu n=ansible | TASK [Install Memcache] ******************************************************************************************************************************
+2023-03-05 21:50:03,549 p=2051 u=ubuntu n=ansible | changed: [mc01]
+2023-03-05 21:50:03,558 p=2051 u=ubuntu n=ansible | TASK [Start & Enable Memcache] ***********************************************************************************************************************
+2023-03-05 21:50:04,006 p=2051 u=ubuntu n=ansible | ok: [mc01]
+2023-03-05 21:50:04,016 p=2051 u=ubuntu n=ansible | TASK [Enable remote login to memecache] **************************************************************************************************************
+2023-03-05 21:50:04,294 p=2051 u=ubuntu n=ansible | changed: [mc01]
+2023-03-05 21:50:04,303 p=2051 u=ubuntu n=ansible | RUNNING HANDLER [Restart memcached] ******************************************************************************************************************
+2023-03-05 21:50:04,792 p=2051 u=ubuntu n=ansible | changed: [mc01]
+2023-03-05 21:50:04,803 p=2051 u=ubuntu n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: rmqsrvgrp
+
+2023-03-05 21:50:04,804 p=2051 u=ubuntu n=ansible | PLAY [Install & Setup RabbitMQ with user] ************************************************************************************************************
+2023-03-05 21:50:04,804 p=2051 u=ubuntu n=ansible | skipping: no hosts matched
+2023-03-05 21:50:04,805 p=2051 u=ubuntu n=ansible | PLAY [Setup Tomcat8 & Deploy Artifact] ***************************************************************************************************************
+2023-03-05 21:50:04,814 p=2051 u=ubuntu n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************
+2023-03-05 21:50:06,047 p=2051 u=ubuntu n=ansible | ok: [app01]
+2023-03-05 21:50:06,062 p=2051 u=ubuntu n=ansible | TASK [Install JDK on Ubuntu 18/20] *******************************************************************************************************************
+2023-03-05 21:51:19,028 p=2051 u=ubuntu n=ansible | changed: [app01]
+2023-03-05 21:51:19,038 p=2051 u=ubuntu n=ansible | TASK [Download Tomcat Tar Ball/Binaries] *************************************************************************************************************
+2023-03-05 21:51:21,832 p=2051 u=ubuntu n=ansible | changed: [app01]
+2023-03-05 21:51:21,842 p=2051 u=ubuntu n=ansible | TASK [Add tomcat group] ******************************************************************************************************************************
+2023-03-05 21:51:22,293 p=2051 u=ubuntu n=ansible | changed: [app01]
+2023-03-05 21:51:22,303 p=2051 u=ubuntu n=ansible | TASK [Add tomcat user] *******************************************************************************************************************************
+2023-03-05 21:51:22,889 p=2051 u=ubuntu n=ansible | changed: [app01]
+2023-03-05 21:51:22,899 p=2051 u=ubuntu n=ansible | TASK [file] ******************************************************************************************************************************************
+2023-03-05 21:51:23,292 p=2051 u=ubuntu n=ansible | changed: [app01]
+2023-03-05 21:51:23,303 p=2051 u=ubuntu n=ansible | TASK [Extract tomcat] ********************************************************************************************************************************
+2023-03-05 21:51:24,546 p=2051 u=ubuntu n=ansible | changed: [app01]
+2023-03-05 21:51:24,557 p=2051 u=ubuntu n=ansible | TASK [debug] *****************************************************************************************************************************************
+2023-03-05 21:51:24,592 p=2051 u=ubuntu n=ansible | ok: [app01] => {
+    "msg": "apache-tomcat-8.5.37"
+}
+2023-03-05 21:51:24,633 p=2051 u=ubuntu n=ansible | TASK [Synchronize /tmp/tomcat8/tomcat_cont /usr/local/tomcat8.] **************************************************************************************
+2023-03-05 21:51:25,812 p=2051 u=ubuntu n=ansible | changed: [app01 -> 172.20.4.165]
+2023-03-05 21:51:25,822 p=2051 u=ubuntu n=ansible | TASK [Change ownership of /usr/local/tomcat8] ********************************************************************************************************
+2023-03-05 21:51:26,162 p=2051 u=ubuntu n=ansible | changed: [app01]
+2023-03-05 21:51:26,173 p=2051 u=ubuntu n=ansible | TASK [Setup tomcat SVC file on ubuntu 16 and 18] *****************************************************************************************************
+2023-03-05 21:51:26,229 p=2051 u=ubuntu n=ansible | fatal: [app01]: FAILED! => {"changed": false, "msg": "Could not find or access 'templates/tomcat8-ubuntu-svcfile.j2'\nSearched in:\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/templates/templates/tomcat8-ubuntu-svcfile.j2\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/templates/tomcat8-ubuntu-svcfile.j2\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/templates/templates/tomcat8-ubuntu-svcfile.j2\n\t/home/ubuntu/vpc-stack-vpprofile/Ansible-play-books/provision-stack/templates/tomcat8-ubuntu-svcfile.j2 on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2023-03-05 21:51:26,230 p=2051 u=ubuntu n=ansible | PLAY RECAP *******************************************************************************************************************************************
+2023-03-05 21:51:26,231 p=2051 u=ubuntu n=ansible | app01                      : ok=13   changed=9    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-03-05 21:51:26,231 p=2051 u=ubuntu n=ansible | cntl                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-05 21:51:26,231 p=2051 u=ubuntu n=ansible | db01                       : ok=14   changed=9    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-05 21:51:26,231 p=2051 u=ubuntu n=ansible | localhost                  : ok=5    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2023-03-05 21:51:26,231 p=2051 u=ubuntu n=ansible | mc01                       : ok=7    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-05 21:51:26,233 p=2051 u=ubuntu n=ansible | rmq01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-05 21:51:26,233 p=2051 u=ubuntu n=ansible | web01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
