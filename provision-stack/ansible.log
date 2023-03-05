@@ -711,3 +711,8 @@ https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery
 2023-03-01 23:28:18,870 p=6307 u=ubuntu n=ansible | changed: [mc01]
 2023-03-01 23:28:18,877 p=6307 u=ubuntu n=ansible | PLAY RECAP *********************************************************************************************************************************************
 2023-03-01 23:28:18,878 p=6307 u=ubuntu n=ansible | mc01                       : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-03-02 23:18:19,307 p=908 u=ubuntu n=ansible | PLAY [Install Memcache, Start & enable SVC] ************************************************************************************************************
+2023-03-02 23:18:19,357 p=908 u=ubuntu n=ansible | TASK [Install Memcache] ********************************************************************************************************************************
+2023-03-02 23:19:05,438 p=908 u=ubuntu n=ansible | fatal: [mc01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.152 port 22: Connection timed out", "unreachable": true}
+2023-03-02 23:19:05,440 p=908 u=ubuntu n=ansible | PLAY RECAP *********************************************************************************************************************************************
+2023-03-02 23:19:05,440 p=908 u=ubuntu n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
