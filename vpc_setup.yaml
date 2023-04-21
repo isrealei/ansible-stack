@@ -73,7 +73,7 @@
       az: "{{zone1}}"
       region: "{{region}}"
       state: "{{state}}"
-      map_public: yes
+      map_public: no
       tags:
         Name: private-Subnet-1
     register: prisub1_out
@@ -87,7 +87,7 @@
       az: "{{zone2}}"
       region: "{{region}}"
       state: "{{state}}"
-      map_public: yes
+      map_public: no
       tags:
         Name: private-Subnet-2
     register: prisub2_out
@@ -101,7 +101,7 @@
       az: "{{zone3}}"
       region: "{{region}}"
       state: "{{state}}"
-      map_public: yes
+      map_public: no
       tags:
         Name: private-Subnet-3
     register: prisub3_out
@@ -198,7 +198,7 @@
 
   - name: create variable file for vpc output
     copy:
-       content: "vpcid: {{vpout.vpc.id}}\npub1id: {{pubsub1_out.subnet.id}}\npub2id: {{pubsub2_out.subnet.id}}\npub3id: {{pubsub3_out.subnet.id}}\npri1id: {{prisub1_out.subnet.id}}\npri2id: {{prisub2_out.subnet.id}}\npri3id: {{prisub3_out.subnet.id}}\nigwid: {{igwout.gateway_id}}\nngwid: {{natout.nat_gateway_id}}\npubrtid: {{pubrt.route_table.id}}\nprirtid: {{prirt.route_table.id}}"
+       content: "region: {{region}}\nvpcid: {{vpout.vpc.id}}\npub1id: {{pubsub1_out.subnet.id}}\npub2id: {{pubsub2_out.subnet.id}}\npub3id: {{pubsub3_out.subnet.id}}\npri1id: {{prisub1_out.subnet.id}}\npri2id: {{prisub2_out.subnet.id}}\npri3id: {{prisub3_out.subnet.id}}\nigwid: {{igwout.gateway_id}}\nngwid: {{natout.nat_gateway_id}}\npubrtid: {{pubrt.route_table.id}}\nprirtid: {{prirt.route_table.id}}"
        dest: vars/output_vars
 
 
