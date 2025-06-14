@@ -1,37 +1,40 @@
 ## Complete Provisioning with Ansible
 
-This project is a continuation of our previous project where we utilized Ansible for VPC setup. In this project, we will be setting up the a java web application stack on the VPC we previously configured. Our goal is to lift and shift the stack, meaning we will be automatically setting up a bunch of EC2 instances and provisioning the project full stalk stack services, such as MySQL, Memcached, RabbitMQ, Tomcat, and more, by utilizing Ansible.
+This project builds on a previous setup where a Virtual Private Cloud (VPC) was configured using Ansible. The focus here is on deploying the **Barion** Java web application stack onto that VPC. The goal is to automate the provisioning of EC2 instances and set up all required services—such as MySQL, Memcached, RabbitMQ, Tomcat, and others—using Ansible.
+
+---
 
 ## Project Overview
 
-We have an operations team responsible for managing all the operating systems in our infrastructure, including cloud and virtual machine setup. This team receives regular requests for provisioning or making changes to the infrastructure. As we are living in a time of agility, where everything needs to be done quickly, we have a lot of disposable environments, such as pre-production environments that are frequently disposable. These requests often involve setting up a complex infrastructure with many moving parts, including different services, networks, security, and high availability.
+Managing infrastructure manually can be complex, error-prone, and time-consuming—especially when dealing with environments that need frequent provisioning or changes, such as staging or pre-production setups. Each environment involves coordinating multiple services, ensuring network security, and maintaining high availability.
 
-Setting up the entire stack is complex and time-consuming work, especially when done manually. Repeating the same process multiple times and making regular changes is difficult to track, and there is a higher chance of making mistakes with human intervention, which can lead to costly downtime.
+To streamline this process, I automated the infrastructure provisioning using Ansible. This approach minimizes human error, accelerates deployment, and ensures that infrastructure configurations are consistent and version-controlled.
 
-To address these issues, we need to automate the entire process of infrastructure configuration management. An automation framework or tool can manage all infrastructure configurations automatically, which reduces the chance of human error and centralizes all changes. By having the infrastructure managed as code, we can version control it, making it repeatable and reusable across projects.
+---
 
+## Project Goals
 
-## Project Goals 
+The main objective was to fully automate the setup of the **Barion** application stack, including:
 
-The goal of this project is to set up the V profile application stack automatically, without any human intervention. By utilizing Ansible, we will automate the process of setting up a complex infrastructure with many moving parts, including different services, networks, security, and high availability.
+* Launching EC2 instances within a preconfigured VPC
+* Installing and configuring services such as MySQL, Memcached, RabbitMQ, Tomcat, and any additional dependencies
+* Enabling repeatable, consistent deployments through infrastructure-as-code practices
 
-The key benefits of this approach include reducing the chance of human error, centralizing all changes, and making the infrastructure manageable as code, which is repeatable and reusable across projects.
+By leveraging Ansible, I ensured that all configuration and provisioning steps could be executed automatically and reliably.
 
-
+---
 
 ## Project Tasks
 
-- Configure EC2 instances on VPC
-- Provision V profile stack services, such as MySQL, Memcached, RabbitMQ, Tomcat, and more
-- Automate the entire process of infrastructure configuration management utilizing Ansible
-- Make infrastructure manageable as code for repeatable and reusable across projects
+* Configure and launch EC2 instances within an existing VPC
+* Provision the **Barion** stack services (MySQL, Memcached, RabbitMQ, Tomcat, etc.)
+* Automate the full infrastructure configuration workflow with Ansible
+* Implement infrastructure-as-code principles for repeatable, scalable deployments
 
-
+---
 
 ## Conclusion
 
-Automating the infrastructure configuration management process is essential in today's time of agility. This project aims to utilize Ansible to set up a complex infrastructure with many moving parts, including different services, networks, security, and high availability. By doing so, we can reduce the chance of human error, centralize all changes, and make the infrastructure manageable as code, which is repeatable and reusable across projects.
-
-
+Automating infrastructure provisioning is essential for building fast, reliable, and maintainable environments. This project used Ansible to deploy the **Barion** Java application stack on AWS, covering everything from compute provisioning to service configuration. The result is a fully automated and consistent deployment process that supports future scaling, version control, and rapid iteration.
 
 
